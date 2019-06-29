@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@using React.Web.Mvc
+
+<div class="jumbotron">
+    <h1>React JS SSR Blog</h1>   
+</div>
+
+<div class="row">  
+    
+    @Html.React("Components.Blogs", new
+{
+    blog=ViewBag.Blog
+})
+    
+  
+
+</div>
+
+<!-- Load all required scripts (React + the site's scripts) -->
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/16.4.0/umd/react.development.js"></script>
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.6.0/prop-types.js"></script>
+<script src="@Url.Content("~/build/client.bundle.js")"></script>
+<!-- Render the code to initialise the component -->
+@Html.ReactInitJavaScript()
