@@ -3,19 +3,17 @@
 }
 @using React.Web.Mvc
 
-<div class="jumbotron">
-    <h1>React JS SSR Blog</h1>
-</div>
+@Html.React("Components.App.HelloWorld", new
+{
+blog = ViewBag.Blog
+})
+<hr />
 
 <div class="row">
-
-    @Html.React("Components.Blogs", new
+    @Html.React("Components.App.UserDetails", new
 {
     blog = ViewBag.Blog
 })
-
-
-
 </div>
 
 <!-- Load all required scripts (React + the site's scripts) -->

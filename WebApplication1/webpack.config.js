@@ -6,14 +6,14 @@
  *  LICENSE file in the root directory of this source tree. An additional grant 
  *  of patent rights can be found in the PATENTS file in the same directory.
  */
-
+var ExtraWatchWebpackPlugin = require('extra-watch-webpack-plugin');
 var path = require('path');
 
 module.exports = {
   context: path.join(__dirname, 'scripts'),
   entry: {
     server: './server',
-    client: './client'
+      client: './client'    
   },
   output: {
     path: path.join(__dirname, 'build'),
@@ -31,7 +31,12 @@ module.exports = {
 	  // bundled with ReactJS.NET.
 	  //{ test: require.resolve('react'), loader: 'expose?React' }
     ],
-  },
+    },
+    plugins: [
+        new ExtraWatchWebpackPlugin({
+            files: './src/**/*.js'           
+        }),
+    ],
   resolve: {
     // Allow require('./blah') to require blah.jsx
     extensions: ['', '.js', '.jsx']
@@ -40,5 +45,5 @@ module.exports = {
     // Use external version of React (from CDN for client-side, or bundled with ReactJS.NET for server-side)
 	// Comment this out if you want to load your own version of React
     react: 'React'
-  }
+    },    
 };

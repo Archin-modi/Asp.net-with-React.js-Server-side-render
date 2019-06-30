@@ -82,9 +82,15 @@
 	 *  of patent rights can be found in the PATENTS file in the same directory.
 	 */
 
+	// export multiple components in app module
 	module.exports = {
-	  Blogs: __webpack_require__(3)
+	  App: __webpack_require__(3)
 	};
+
+	// export default components as app 
+	//module.exports = {
+	//    App: require('./App')
+	//};
 
 /***/ }),
 /* 3 */
@@ -100,13 +106,13 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Blogs = function (_React$Component) {
-	    _inherits(Blogs, _React$Component);
+	var UserDetails = function (_React$Component) {
+	    _inherits(UserDetails, _React$Component);
 
-	    function Blogs(props) {
-	        _classCallCheck(this, Blogs);
+	    function UserDetails(props) {
+	        _classCallCheck(this, UserDetails);
 
-	        var _this = _possibleConstructorReturn(this, (Blogs.__proto__ || Object.getPrototypeOf(Blogs)).call(this, props));
+	        var _this = _possibleConstructorReturn(this, (UserDetails.__proto__ || Object.getPrototypeOf(UserDetails)).call(this, props));
 
 	        _this.state = {
 	            load: false
@@ -115,66 +121,61 @@
 	        return _this;
 	    }
 
-	    _createClass(Blogs, [{
+	    _createClass(UserDetails, [{
 	        key: "componentWillMount",
 	        value: function componentWillMount() {}
 	    }, {
 	        key: "hanlderclick",
 	        value: function hanlderclick() {
-	            //alert();
 	            this.setState({ load: !this.state.load });
 	        }
 	    }, {
 	        key: "render",
 	        value: function render() {
-	            var _this2 = this;
-
-	            var b = this.props.blog;
-	            console.log(b);
 	            var commentNodes = this.props.blog.map(function (b) {
 	                return React.createElement(
 	                    "div",
 	                    { className: "col-md-4" },
 	                    React.createElement(
-	                        "h4",
-	                        null,
-	                        b.title
-	                    ),
-	                    React.createElement(
-	                        "p",
-	                        null,
-	                        b.body
-	                    ),
-	                    React.createElement(
-	                        "button",
-	                        { onClick: _this2.hanlderclick },
-	                        "Click"
+	                        "div",
+	                        { "class": "span4" },
+	                        React.createElement(
+	                            "blockquote",
+	                            null,
+	                            React.createElement(
+	                                "p",
+	                                null,
+	                                b.Name
+	                            ),
+	                            React.createElement(
+	                                "small",
+	                                null,
+	                                b.BookTitle
+	                            )
+	                        )
 	                    )
 	                );
 	            });
-	            var loading = React.createElement(
-	                "h1",
-	                null,
-	                "loading..."
-	            );
-	            return React.createElement(
-	                "div",
-	                null,
-	                " ",
-	                React.createElement(
-	                    "button",
-	                    { onClick: this.hanlderclick },
-	                    "click"
-	                ),
-	                this.state.load ? loading : commentNodes
-	            );
+	            return commentNodes;
 	        }
 	    }]);
 
-	    return Blogs;
+	    return UserDetails;
 	}(React.Component);
 
-	module.exports = Blogs;
+	function HelloWorld() {
+	    return React.createElement(
+	        "h1",
+	        null,
+	        "Hello, John Deo"
+	    );
+	}
+
+	// Export multiple Components 
+	module.exports = { 'UserDetails': UserDetails, 'HelloWorld': HelloWorld };
+
+	// Export single Components
+	//module.exports = UserDetails;
 
 /***/ })
 /******/ ]);

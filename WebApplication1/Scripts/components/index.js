@@ -7,6 +7,14 @@
  *  of patent rights can be found in the PATENTS file in the same directory.
  */
 
+
+// export multiple components in app module
 module.exports = {
-  Blogs: require('./App')
+    App: require('./App')
 };
+
+
+// export default components as app 
+//module.exports = {
+//    App: require('./App')
+//};

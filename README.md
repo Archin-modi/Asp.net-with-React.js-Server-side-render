@@ -10,6 +10,10 @@ clone the repository
 
 ` git clone https://github.com/Archin-modi/Asp.net-with-React.js-Server-side-render.git `
 
+#### Step 1: Build react project
+
+`npm run start`
+
 ## Authors
  - **Archin Modi** - Full Stack Developer
 
